@@ -1,0 +1,36 @@
+{
+  "name": "spagency",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^6.11.1",
+    "@sanity/vision": "^3.27.0",
+    "axios": "^1.6.7",
+    "get-youtube-id": "^1.0.1",
+    "next": "^14.1.0",
+    "next-sanity": "^7.0.6",
+    "nodemailer": "^6.9.9",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.50.1",
+    "react-query": "^3.39.3",
+    "react-slideshow-image": "^4.3.0",
+    "react-youtube": "^10.1.0",
+    "sass": "^1.69.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "typescript": "^5"
+  }
+}

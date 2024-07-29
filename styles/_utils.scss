@@ -1,0 +1,302 @@
+@media (min-width: 35em) {
+  .products {
+    & > div {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5rem;
+      div {
+        flex: 30rem 0 1;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .fa-picture-o,
+  .fa-newspaper-o,
+  .fa-id-card-o {
+    font-size: 3rem;
+  }
+
+  .card {
+    position: relative;
+    text-align: center;
+    h3 {
+      margin-top: 7rem;
+      margin-bottom: 2rem;
+    }
+    a {
+      display: block;
+      margin-block: 3rem;
+      display: block;
+      background-color: $white;
+      padding: 0.6rem;
+      padding-inline: 2rem;
+      width: max-content;
+      margin-inline: auto;
+    }
+    .fa {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      background-color: $white;
+      border: solid 0.4rem $yellow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .headeroverlay {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > div {
+      line-height: 7rem;
+      text-align: center;
+    }
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    h1 {
+      color: $yellow;
+    }
+    h4 {
+      color: $white;
+    }
+  }
+  .container {
+    margin-inline: auto;
+    padding-inline: 7rem;
+    display: flex;
+    gap: 3rem;
+    & > div {
+      flex: 10rem 1 1;
+    }
+  }
+
+  .flex {
+    display: flex;
+  }
+  .justify-content {
+    justify-content: center;
+  }
+  .align-items {
+    align-items: center;
+  }
+
+  .youtubebox {
+    height: 33rem;
+    background-color: $black;
+  }
+
+  .excerptbox {
+    & > div:nth-of-type(1) {
+      margin-block: 3rem;
+      height: 20rem;
+      overflow: hidden;
+    }
+    & > div:nth-of-type(2) {
+      display: flex;
+      gap: 2rem;
+      a {
+        display: block;
+        width: 30%;
+        padding: 1rem;
+        text-align: center;
+      }
+      a:nth-of-type(1) {
+        background-color: $black;
+        color: $white;
+      }
+      a:nth-of-type(2) {
+        background-color: $yellow;
+        color: $black;
+      }
+    }
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-media {
+  display: flex;
+  gap: 2rem;
+  margin-inline: auto;
+  margin-block: 3rem;
+  width: max-content;
+
+  .fa {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    border: solid 0.1rem $white;
+    border-radius: 50%;
+    color: $white !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.modal-overlay {
+  & > div {
+    border: solid 2rem white;
+    width: 40%;
+    height: 40rem;
+  }
+
+  z-index: 9999;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+@media (max-width: 35em) {
+  .headeroverlay {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > div {
+      line-height: 8rem;
+      text-align: center;
+    }
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 70vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    h1 {
+      color: $yellow;
+    }
+    h4 {
+      color: $white;
+      line-height: 4rem;
+    }
+  }
+
+  .card {
+    position: relative;
+    text-align: center;
+    h3 {
+      margin-top: 7rem;
+      margin-bottom: 2rem;
+    }
+    a {
+      display: block;
+      margin-block: 3rem;
+      display: block;
+      background-color: $white;
+      padding: 0.6rem;
+      padding-inline: 2rem;
+      width: max-content;
+      margin-inline: auto;
+    }
+    .fa {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      background-color: $white;
+      border: solid 0.4rem $yellow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .youtubebox {
+    height: 33rem;
+    background-color: $black;
+  }
+
+  .excerptbox {
+    margin-top: 105rem;
+    padding: 2rem;
+    & > div:nth-of-type(1) {
+      margin-bottom: 3rem;
+      height: 20rem;
+      overflow: hidden;
+    }
+    & > div:nth-of-type(2) {
+      display: flex;
+      gap: 2rem;
+      a {
+        display: block;
+        width: 50%;
+        padding: 1rem;
+        text-align: center;
+      }
+      a:nth-of-type(1) {
+        background-color: $black;
+        color: $white;
+      }
+      a:nth-of-type(2) {
+        background-color: $yellow;
+        color: $black;
+      }
+    }
+  }
+
+  .modal-overlay {
+    & > div {
+      border: solid 2rem white;
+      width: 90%;
+      height: 40rem;
+    }
+
+    z-index: 9999999;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+}
