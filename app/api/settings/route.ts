@@ -16,7 +16,9 @@ export async function GET(req: Request) {
         facebook,
         instagram,
         twitter,
-        youtube
+        youtube,
+        googlemap,
+        digitaladdress
       }
     `
     );

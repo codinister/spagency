@@ -1,45 +1,65 @@
+'use client'
+
 import Image from 'next/image';
 import useLink from '@/utils/useLink';
 import useLogo from '@/utils/useLogo';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Nav = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState('hide');
 
-  const showBox = () => setShow(true);
-  const hideBox = () => setShow(false);
+  const showBox = () => setShow('show');
+  const hideBox = () => setShow('hide');
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const onScroll = () => {
+    const y = Math.floor(window.scrollY);
+
+    if (y > 100) {
+      document.querySelector('.navbar')?.classList.add('show');
+    } else {
+      document.querySelector('.navbar')?.classList.remove('show');
+    }
+  };
 
   return (
-    <nav>
-      <div className="container">
-        <div className={show ? 'logobx show' : 'logobx'}>
+    <nav className="navbar">
+
+      <div className={`container ${show}`}>
+        <div className="logobx">
           {useLogo(100, 70)}
         </div>
-
         <div className={show ? 'navlinks show' : 'navlinks'}>
           <ul>
-            {useLink('HOME', '/' , hideBox )}
-            {useLink('ABOUT', '/about' , hideBox)}
-            {useLink('PRODUCTS', '/products' , hideBox)}
-            {useLink('SERVICES', '/services' , hideBox)}
-            {useLink('CLIENTS', '/clients', hideBox)}
-            {useLink('CONNECT', '/connect', hideBox)}
+            {useLink('Home', '/', hideBox)}
+            {useLink('About', '/about', hideBox)}
+            {useLink('Products', '/products', hideBox)}
+            {useLink('Contact', '/contact', hideBox)}
           </ul>
         </div>
       </div>
+
       <div
-        className={show ? 'navoverlay show' : 'navoverlay'}
+        className={`navoverlay ${show}`}
         onClick={hideBox}
       ></div>
+
       <div className="hamburger">
         <Image
           src="/hamburger.jpg"
           alt=""
           onClick={showBox}
-          width="30"
-          height="30"
+          width="20"
+          height="20"
         />
+
+        <h4>S.P Agency</h4>
       </div>
+
     </nav>
   );
 };

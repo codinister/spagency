@@ -1,14 +1,10 @@
-'use client';
-
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.scss';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import Wrapper from '@/components/Wrapper';
+import QueryClientWrapper from '@/components/QueryClientWrapper';
+import Nav from '@/components/nav/Nav';
+import Footer from '@/components/footer/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
-
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: 'S.P AGENCY',
   description: 'Billboard company in Accra Ghana',
 };
@@ -18,15 +14,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const provider = new QueryClient();
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <QueryClientProvider client={provider}>
-          <Wrapper>{children}</Wrapper>
-        </QueryClientProvider>
-
-        <div id="modal"></div>
+      <body>
+        <QueryClientWrapper>
+          <Nav />
+          {children}
+          <Footer />
+        </QueryClientWrapper>
       </body>
     </html>
   );

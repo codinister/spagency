@@ -1,29 +1,23 @@
-type Iframe = {
-  src: any;
-  width: any;
-  height: any;
-  allowfullscreen: any;
-  loading: any;
-  referrerpolicy: any;
+'use client';
+
+type IframeType = {
+  src: string;
+  width: string;
+  height: string;
 };
 
 const Map = ({
   src,
   width,
   height,
-  allowfullscreen,
-  loading,
-  referrerpolicy,
-}: Iframe) => {
+}: IframeType) => {
   return (
     <>
+
       <iframe
-        src={src}
         width={width}
         height={height}
-        allowFullScreen={allowfullscreen}
-        loading={loading}
-        referrerPolicy={referrerpolicy}
+        src={`https://maps.google.com/maps?hl=en&q=${src}&ie=UTF8&t=roadmap&z=6&iwloc=B&output=embed&z=99`}
       ></iframe>
     </>
   );

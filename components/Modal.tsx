@@ -1,51 +1,35 @@
-
-
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-type MD = {
-  img: string;
-  openmodal: boolean;
-  setOpenmodal: Function;
+type ModalType = {
+  image: string;
+  actionFn: (value: string) => void;
+  value: string;
 };
 
-const Modal = ({ img, openmodal, setOpenmodal }: MD) => {
+const Modal = ({ image, actionFn, value }: ModalType) => {
+  const [pageReady, setPageready] = useState(false);
+
   useEffect(() => {
-    if (!openmodal) {
+    setPageready(true);
+  }, []);
 
-        document.body.style.overflow = 'scroll';
-      
-    }
-  }, [openmodal]);
-
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-
-    setOpenmodal(false);
-  };
-
-  const output = openmodal ? (
-    <div className="modal-overlay" onClick={handleClick}>
-      <div
-        style={{
-          backgroundImage: `url(${img})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'top',
- 
-        }}
-      ></div>
-    </div>
-  ) : (
-    ''
-  );
-
-  if (typeof window !== "undefined") {
-    if(document.getElementById('modal')){
-    return createPortal(output,document.getElementById('modal') as HTMLElement);
-    }
-  }
-
+  return pageReady
+    ? createPortal(
+        <>
+          <div className={`modaloverlay ${value}`} onClick={()=> actionFn('hide')}></div>
+          <div
+            className={`modalinner ${value}`}
+            style={{
+              backgroundImage: `url(${image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'top',
+            }}
+          ></div>
+        </>,
+        document.querySelector('body') as HTMLElement
+      )
+    : '';
 };
 
 export default Modal;

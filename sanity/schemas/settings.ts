@@ -53,5 +53,16 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'googlemap',
+      title: 'Google Map',
+      type: 'string',
+    }),
+
+    defineField({
+      name: 'digitaladdress',
+      title: 'Digital Address',
+      type: 'string',
+    }),
   ],
 });

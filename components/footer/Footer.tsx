@@ -1,8 +1,13 @@
-import useCopyright from '@/utils/useCopyright';
-import useFooter from '@/utils/useFooter';
-import useLogo from '@/utils/useLogo';
-import useSocial from '@/utils/useSocial';
+'use client'
+
 import useGetQuery from '@/axios/useGetQuery';
+import { LuPhone } from 'react-icons/lu';
+import Link from 'next/link';
+import { IoLocationOutline } from 'react-icons/io5';
+import { FaSquareFacebook } from 'react-icons/fa6';
+import { FaInstagram } from 'react-icons/fa6';
+import { BsTwitterX } from 'react-icons/bs';
+import { IoMdBook } from 'react-icons/io';
 
 const Footer = () => {
   //SETTINGS  DATA
@@ -23,43 +28,84 @@ const Footer = () => {
   const { data: abt } = useGetQuery('abt', '/about');
   const about = abt ? abt?.data : [];
 
-const aboutexcerpt = about[1]?.excerpt.slice(0,100)
+  const aboutexcerpt = about[1]?.excerpt.slice(0, 100);
 
-
-  
   return (
     <footer>
-      <div className="container">
-        {useFooter('SERVICES', {
-          ['Branding']: '/services',
-          ['Large Format Printing']: '/services',
-          ['Outdoor Advertising']: '/services',
-        })}
-        {useFooter('ABOUT', {
-          [aboutexcerpt]:
-            '/about',
-        })}
-
-        {useFooter('CONTACT', {
-          [sett?.comp_location]: '/contact',
-          [sett?.comp_email]: '/contact',
-          [sett?.comp_phone]: '/contact',
-        })}
+      <div>
+        <div>
+          <h4>Still Have Questions?</h4>
+          <p>
+            Contact us today and get all your questions answered without delay
+          </p>
+          <Link href="/">
+            <span>Contact Us</span>
+            <LuPhone />
+          </Link>
+        </div>
       </div>
 
       <div>
-        {useLogo(60, 50)}
+        <div className="container">
+          <div>
+            <h4>About Us</h4> 
+            <p>{aboutexcerpt}</p>
+            <Link href="/about">
+              <span>About Us</span>
+              <IoMdBook />
+            </Link>
+          </div>
 
-        {useSocial({
-          ['facebook']: `${sett?.facebook}`,
-          ['twitter']: `${sett?.twitter}`,
-          ['instagram']: `${sett?.instagram}`,
-        })}
+          <div>
+            <h4>Quick Links</h4>
 
-        {useCopyright({
-          start_date: '2024-02-11',
-          comp_name: 'S.P Agency',
-        })}
+            <ul>
+              <li>
+                <Link href="/home">Home</Link>
+              </li>
+              <li>
+                <Link href="/services">Services</Link>
+              </li>
+              <li>
+                <Link href="/products">Products</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <IoLocationOutline />
+                <span>{sett?.comp_location}</span>
+              </li>
+              <li>
+                <LuPhone />
+                <span>{sett?.comp_phone}</span>
+              </li>
+
+              <li>
+                <a href={sett?.facebook} target="_blank">
+                  <FaSquareFacebook />
+                </a>
+                <a href={sett?.instagram} target="_blank">
+                  <FaInstagram />
+                </a>
+                <a href={sett?.twitter} target="_blank">
+                  <BsTwitterX />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="container">
+          Copyrigt &copy; 2023 {sett?.comp_name} Design by Codenester
+        </div>
       </div>
     </footer>
   );

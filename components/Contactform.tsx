@@ -1,12 +1,10 @@
 import { useForm } from 'react-hook-form';
 import Errorbox from './Errorbox';
 import axios from 'axios';
-import {useState} from 'react'
+import { useState } from 'react';
 
 const Contactform = () => {
-
-  const [getStatus,setStatus] = useState(false)
-
+  const [getStatus, setStatus] = useState(false);
 
   type FS = {
     fullname: string;
@@ -27,22 +25,19 @@ const Contactform = () => {
   });
 
   const { register, handleSubmit, formState } = form;
-  const { errors,isSubmitSuccessful, isSubmitting } = formState;
+  const { errors, isSubmitSuccessful, isSubmitting } = formState;
 
   const submitForm = (data: FS) => {
     axios
       .post('api/sendmail', {
-        data
+        data,
       })
-      .then((resp) => (resp?.data?.status))
+      .then((resp) => resp?.data?.status)
       .catch((err) => console.log(err));
   };
 
-
-
-
-  if(isSubmitSuccessful){
-    return <div className="email-sent"> Email sent!</div>
+  if (isSubmitSuccessful) {
+    return <div className="email-sent"> Email sent!</div>;
   }
 
   return (
@@ -50,74 +45,77 @@ const Contactform = () => {
       <h4>GET IN TOUCH</h4>
       <form onSubmit={handleSubmit(submitForm)}>
         <div className="form-control">
-          <input
-            type="text"
-            placeholder=""
-            {...register('fullname', {
-              required: {
-                value: true,
-                message: 'Fullname field required!',
-              },
-            })}
-          />
-          <label htmlFor="">Full Name</label>
-          <Errorbox err={errors?.fullname?.message} />
+          <div>
+            <input
+              type="text"
+              placeholder=""
+              {...register('fullname', {
+                required: {
+                  value: true,
+                  message: 'Fullname field required!',
+                },
+              })}
+            />
+            <label htmlFor="">Full Name</label>
+            <Errorbox err={errors?.fullname?.message} />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder=""
+              {...register('company', {
+                required: {
+                  value: true,
+                  message: 'Company field required!',
+                },
+              })}
+            />
+            <label htmlFor="">Company</label>
+            <Errorbox err={errors?.company?.message} />
+          </div>
         </div>
 
         <div className="form-control">
-          <input
-            type="text"
-            placeholder=""
-            {...register('company', {
-              required: {
-                value: true,
-                message: 'Company field required!',
-              },
-            })}
-          />
-          <label htmlFor="">Company</label>
-          <Errorbox err={errors?.company?.message} />
+          <div>
+            <input
+              type="text"
+              placeholder=""
+              {...register('email', {
+                required: {
+                  value: true,
+                  message: 'Email field required!',
+                },
+                pattern: {
+                  value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                  message: 'Invalid email address',
+                },
+              })}
+            />
+            <label htmlFor="">Email</label>
+            <Errorbox err={errors?.email?.message} />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              placeholder=""
+              {...register('phone', {
+                required: {
+                  value: true,
+                  message: 'Phone field required!',
+                },
+                minLength: {
+                  value: 10,
+                  message: 'Valid phone number required!',
+                },
+              })}
+            />
+            <label htmlFor="">Phone</label>
+            <Errorbox err={errors?.phone?.message} />
+          </div>
         </div>
 
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder=""
-            {...register('email', {
-              required: {
-                value: true,
-                message: 'Email field required!',
-              },
-              pattern: {
-                value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: 'Invalid email address',
-              },
-            })}
-          />
-          <label htmlFor="">Email</label>
-          <Errorbox err={errors?.email?.message} />
-        </div>
-
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder=""
-            {...register('phone', {
-              required: {
-                value: true,
-                message: 'Phone field required!',
-              },
-              minLength: {
-                value: 10, 
-                message: 'Valid phone number required!'
-              }
-            })}
-          />
-          <label htmlFor="">Phone</label>
-          <Errorbox err={errors?.phone?.message} />
-        </div>
-
-        <div className="form-control">
+        <div className="form-textarea">
           <textarea
             placeholder="Your Message"
             {...register('message', {
@@ -130,7 +128,7 @@ const Contactform = () => {
           <Errorbox err={errors?.message?.message} />
         </div>
 
-        <button>SEND</button>
+        <button>SEND MESSAGE</button>
       </form>
     </div>
   );

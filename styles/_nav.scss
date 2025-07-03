@@ -1,16 +1,28 @@
+.active {
+  color: $yellow !important;
+}
+
 @media (min-width: 35em) {
-  nav {
-    padding-block: 1rem;
-    background-color: $black;
+  .navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+    &.show {
+      background-color: $black;
+      transition: 0.3s;
+    }
+    padding-block: 0.8rem;
     .container {
-      gap: 3rem;
+      gap: 3.2rem;
       & > div:nth-of-type(1) {
         flex-basis: 30rem;
         flex-grow: 1;
       }
 
       & > div:nth-of-type(2) {
-        flex-basis: 500rem;
+        flex-basis: 50rem;
         flex-grow: 1;
         display: flex;
         justify-content: flex-end;
@@ -22,7 +34,8 @@
           li:nth-of-type(6) a {
             display: block;
             background-color: $yellow;
-            padding: 1rem;
+            padding: 1.2rem;
+            border-radius: 2.4rem;
             color: $black;
           }
         }
@@ -30,9 +43,6 @@
     }
     a {
       color: $white;
-    }
-    .active {
-      color: $yellow !important;
     }
   }
 
@@ -42,87 +52,70 @@
 }
 
 @media (max-width: 35em) {
-  nav {
-    padding: 2rem;
-    background-color: $black;
+  .navbar {
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
+    padding: 1.6rem;
+    background-color: $black;
+    z-index: 999999;
     width: 100%;
-    z-index: 99999;
-    .container {
-      position: relative;
-      & > .logobx {
-        position: absolute;
-        z-index: 9;
-        left: -100%;
-        top: 3rem;
+    height: 5.5rem;
+
+    .hamburger {
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & > .container.show {
+      left: 0;
+    }
+    & > .container.hide {
+      left: -100%;
+    }
+    & > .container {
+      transition: 0.3s;
+      background-color: #1d1d1d;
+      position: fixed;
+      z-index: 99999999;
+      left: -100%;
+      top: 0;
+      width: 80%;
+      height: 100vh;
+      padding: 2.4rem;
+      & > div:nth-of-type(1) {
+        margin-top: 2.4rem;
+        margin-bottom: 3.2rem;
       }
-
-      & > .navlinks {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        padding-top: 9rem;
-        background-color: $white;
-        width: 80%;
-        height: 100vh;
-        z-index: 2;
-        transition: 0.2s;
+      & > div:nth-of-type(2) {
         ul {
-          display: flex;
-          gap: 2rem;
-
-          flex-direction: column;
-          padding: 3rem;
           li {
             a {
-              color: $black;
+              color: white;
             }
-          }
-          li:nth-of-type(6) a {
-            display: block;
-            background-color: $yellow;
-            padding: 1rem;
-            color: $black;
+            margin-bottom: 2.4rem;
           }
         }
       }
     }
 
+    & > .navoverlay.show {
+      left: 0;
+    }
+    & > .navoverlay.hide {
+      left: -100%;
+    }
     & > .navoverlay {
-      background-color: rgba(0, 0, 0, 0.6);
+      transition: 0.3s;
       position: fixed;
       width: 100%;
       height: 100vh;
-      left: -100%;
       top: 0;
-    }
-
-    a {
-      color: $white;
-    }
-
-    .active {
-      color: red !important;
-    }
-
-    .hamburger {
-      display: block;
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    .navlinks.show {
-      left: 0;
-    }
-
-    .navoverlay.show {
-      left: 0;
-    }
-
-    .logobx.show {
-      left: 0;
+      left: -100%;
+      z-index: 9999999;
+      background-color: rgba(0, 0, 0, 0.2);
     }
   }
 }

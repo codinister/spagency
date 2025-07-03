@@ -1,5 +1,5 @@
 import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
+import { structureTool } from 'sanity/structure';
 import { schemaTypes } from './schemas/index';
 
 const config = defineConfig({
@@ -8,7 +8,7 @@ const config = defineConfig({
   apiVersion: '2024-02-06',
   title: 'S.P AGENCY',
   basePath: '/adminpage',
-  plugins: [deskTool()],
+  plugins: [structureTool()],
   schema: {
     types: schemaTypes,
   },
