@@ -74,7 +74,7 @@ export default function Home() {
             </div>
             <h2>{serv1?.title}</h2>
             <p>{serv1?.excerpt}</p>
-            <Link href="/services">
+            <Link href="/about">
               Learn more <MdReadMore />
             </Link>
           </div>
@@ -85,7 +85,7 @@ export default function Home() {
               </div>
               <h2>{serv2?.title}</h2>
               <p>{serv2?.excerpt}</p>
-              <Link href="/services">
+              <Link href="/about">
                 Learn more <MdReadMore />
               </Link>
             </div>
@@ -95,7 +95,7 @@ export default function Home() {
               </div>
               <h2>{serv3?.title}</h2>
               <p>{serv3?.excerpt}</p>
-              <Link href="/services">
+              <Link href="/about">
                 Learn more <MdReadMore />
               </Link>
             </div>

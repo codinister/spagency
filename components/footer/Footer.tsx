@@ -38,7 +38,7 @@ const Footer = () => {
           <p>
             Contact us today and get all your questions answered without delay
           </p>
-          <Link href="/">
+          <Link href="/contact">
             <span>Contact Us</span>
             <LuPhone />
           </Link>
