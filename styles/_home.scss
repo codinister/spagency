@@ -339,8 +339,8 @@
   .sec2 {
     background-color: #1d1d1d;
     color: white;
-    padding-block: 7.2rem;
-    padding-inline: 2.4rem;
+    padding: 2.4rem;
+    
 
     & > div {
       .svg-icons {
@@ -348,8 +348,8 @@
           color: white;
           font-size: 6.4rem;
         }
-        margin-bottom: 1.6rem;
-        margin-top: 1.6rem;
+        margin-bottom: 2.4rem;
+      
       }
       p {
         color: rgba(255, 255, 255, 0.6);
@@ -359,7 +359,7 @@
         margin-bottom: 1.6rem;
       }
       a {
-        margin-top: 3.2rem;
+        margin-block: 2.4rem;
         display: block;
         border: solid 0.1rem white;
         padding-block: 0.8rem;
