@@ -119,19 +119,14 @@
   }
 }
 
-
-
-
-
 @media (max-width: 35em) {
   .contact-wrapper {
     & > div:nth-of-type(2) {
       background-color: #0c1013;
 
       & > div {
-    
         & > div:nth-of-type(1) {
-          padding: 5.6rem;
+          padding: 2.4rem;
           & > div:nth-of-type(1) {
             margin-bottom: 4.8rem;
             h1 {
@@ -144,10 +139,8 @@
           }
         }
         & > div:nth-of-type(2) {
-          
-        
           background-color: black;
-          padding: 5.4rem;
+          padding: 2.4rem;
           h4 {
             color: white;
             margin-bottom: 1.2rem;
@@ -241,4 +234,3 @@
     }
   }
 }
-

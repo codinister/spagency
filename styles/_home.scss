@@ -312,7 +312,10 @@
 
   .header {
     height: 70vh;
+    border-bottom-right-radius: 20rem;
+    border-bottom-left-radius: 20rem;
     position: relative;
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -332,6 +335,8 @@
       z-index: -1;
       position: absolute;
       inset: 0;
+      border-bottom-right-radius: 20rem;
+      border-bottom-left-radius: 20rem;
       background-image: linear-gradient(rgba(0, 0, 0, 1) 10%, transparent 90%);
     }
   }
@@ -340,7 +345,6 @@
     background-color: #1d1d1d;
     color: white;
     padding: 2.4rem;
-    
 
     & > div {
       .svg-icons {
@@ -349,7 +353,6 @@
           font-size: 6.4rem;
         }
         margin-bottom: 2.4rem;
-      
       }
       p {
         color: rgba(255, 255, 255, 0.6);
@@ -433,7 +436,6 @@
   }
 
   .sec4 {
-
     & > div:nth-of-type(1) {
       overflow: hidden;
       & > div {
