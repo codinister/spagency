@@ -380,9 +380,9 @@
 
   .sec3 {
     background-color: black;
-    padding-block: 7.2rem;
     color: white;
     padding-inline: 2.4rem;
+    padding-block: 5.6rem;
     h5,
     h2 {
       text-align: center;
@@ -391,7 +391,7 @@
       margin-bottom: 1.2rem;
     }
     h2 {
-      margin-bottom: 5.6rem;
+      margin-bottom: 2.4rem;
     }
     & > div:nth-of-type(1) {
       & > div:nth-of-type(1) {
@@ -433,7 +433,7 @@
   }
 
   .sec4 {
-    padding: 2.4rem;
+
     & > div:nth-of-type(1) {
       overflow: hidden;
       & > div {
