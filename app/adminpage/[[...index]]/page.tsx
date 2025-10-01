@@ -8,6 +8,10 @@ function AdminPage() {
   return (<>
   <br />
   <br />
+    <br />
+  <br />
+    <br />
+  <br />
   <NextStudio config={config} />
   </>)
 }
