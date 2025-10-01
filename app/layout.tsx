@@ -7,6 +7,7 @@ import Footer from '@/components/footer/Footer';
 export const metadata: Metadata = {
   title: 'S.P AGENCY',
   description: 'Billboard company in Accra Ghana',
+ keywords: "Billboard,Ghana,Advertising,Accra,Outdoor"
 };
 
 export default function RootLayout({
