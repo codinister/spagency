@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { IoLocationOutline } from 'react-icons/io5';
 import { FaSquareFacebook } from 'react-icons/fa6';
 import { FaInstagram } from 'react-icons/fa6';
-import { BsTwitterX } from 'react-icons/bs';
+import { CiLinkedin } from "react-icons/ci";
 import { IoMdBook } from 'react-icons/io';
 
 const Footer = () => {
@@ -95,7 +95,7 @@ const Footer = () => {
                   <FaInstagram />
                 </a>
                 <a href={sett?.twitter} target="_blank">
-                  <BsTwitterX />
+                  <CiLinkedin />
                 </a>
               </li>
             </ul>
