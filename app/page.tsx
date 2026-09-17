@@ -60,10 +60,10 @@ export default function Home() {
           backgroundPosition: 'top',
         }}
       >
-        <h4>
-          Give your business the presence it deserves with{' '}
-          <span>S.P AGENCY</span>
-        </h4>
+        <div>
+          <h2>S.P AGENCY</h2>
+          <h4>Give your business the presence it deserves with</h4>
+        </div>
       </section>
 
       <section className="sec2">

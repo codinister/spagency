@@ -37,13 +37,17 @@
     justify-content: flex-start;
     align-items: center;
     padding-inline: 6.4rem;
-    & > h4 {
-      color: white;
-      font-size: 2.4rem;
+    & > div {
       width: 30rem;
-      line-height: 2.9rem;
-      & > span {
+      h2 {
         color: $yellow;
+        font-size: 3.2rem;
+        margin-bottom: 1.6rem;
+      }
+      h4 {
+        color: white;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
       }
     }
     z-index: -2;
@@ -320,15 +324,21 @@
     justify-content: flex-start;
     align-items: center;
     padding-inline: 2.4rem;
-    & > h4 {
-      color: white;
-      font-size: 2.4rem;
+
+    & > div {
       width: 30rem;
-      line-height: 2.9rem;
-      & > span {
+      h2 {
         color: $yellow;
+        font-size: 3.2rem;
+        margin-bottom: 1.6rem;
+      }
+      h4 {
+        color: white;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
       }
     }
+
     z-index: -2;
     &::before {
       content: '';

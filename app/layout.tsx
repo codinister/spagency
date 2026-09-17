@@ -42,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" data-qb-installed="true" suppressHydrationWarning={true}>
+      <body cz-shortcut-listen="true">
         <QueryClientWrapper>
           <Nav />
           {children}
