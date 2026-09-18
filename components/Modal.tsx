@@ -11,13 +11,20 @@ const Modal = ({ image, actionFn, value }: ModalType) => {
   const [pageReady, setPageready] = useState(false);
 
   useEffect(() => {
-    setPageready(true);
+    const fn = () => {
+      setPageready(true);
+    };
+
+    fn();
   }, []);
 
   return pageReady
     ? createPortal(
         <>
-          <div className={`modaloverlay ${value}`} onClick={()=> actionFn('hide')}></div>
+          <div
+            className={`modaloverlay ${value}`}
+            onClick={() => actionFn('hide')}
+          ></div>
           <div
             className={`modalinner ${value}`}
             style={{
@@ -27,7 +34,7 @@ const Modal = ({ image, actionFn, value }: ModalType) => {
             }}
           ></div>
         </>,
-        document.querySelector('body') as HTMLElement
+        document.querySelector('body') as HTMLElement,
       )
     : '';
 };

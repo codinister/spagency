@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.scss';
-import QueryClientWrapper from '@/components/QueryClientWrapper';
 import Nav from '@/components/nav/Nav';
 import Footer from '@/components/footer/Footer';
+import QueryProvider from '@/axios/QueryProvider';
 
 export const metadata: Metadata = {
   title: 'SP Agency GHANA',
@@ -44,11 +44,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-qb-installed="true" suppressHydrationWarning={true}>
       <body cz-shortcut-listen="true">
-        <QueryClientWrapper>
+        <QueryProvider>
           <Nav />
           {children}
           <Footer />
-        </QueryClientWrapper>
+        </QueryProvider>
       </body>
     </html>
   );

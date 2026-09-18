@@ -25,7 +25,7 @@ const Contactform = () => {
   });
 
   const { register, handleSubmit, formState } = form;
-  const { errors, isSubmitSuccessful, isSubmitting } = formState;
+  const { errors, isSubmitSuccessful } = formState;
 
   const submitForm = (data: FS) => {
     axios

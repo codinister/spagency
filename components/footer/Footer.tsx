@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import useGetQuery from '@/axios/useGetQuery';
 import { LuPhone } from 'react-icons/lu';
@@ -6,12 +6,21 @@ import Link from 'next/link';
 import { IoLocationOutline } from 'react-icons/io5';
 import { FaSquareFacebook } from 'react-icons/fa6';
 import { FaInstagram } from 'react-icons/fa6';
-import { CiLinkedin } from "react-icons/ci";
+import { CiLinkedin } from 'react-icons/ci';
 import { IoMdBook } from 'react-icons/io';
 
 const Footer = () => {
+  
   //SETTINGS  DATA
-  const { data } = useGetQuery('setti', '/settings');
+  const data = useGetQuery('setti', '/settings');
+
+  //ABOUT DATA
+  const about = useGetQuery('abt', '/about');
+
+  if (!data && !about) {
+    return '';
+  }
+
   type SETTINS = {
     comp_email: string;
     comp_location: string;
@@ -22,11 +31,7 @@ const Footer = () => {
     twitter: string;
     youtube: string;
   };
-  const sett: SETTINS = data ? data?.data[0] : [];
-
-  //ABOUT DATA
-  const { data: abt } = useGetQuery('abt', '/about');
-  const about = abt ? abt?.data : [];
+  const sett: SETTINS = data[0];
 
   const aboutexcerpt = about[1]?.excerpt.slice(0, 100);
 
@@ -48,7 +53,7 @@ const Footer = () => {
       <div>
         <div className="container">
           <div>
-            <h4>About Us</h4> 
+            <h4>About Us</h4>
             <p>{aboutexcerpt}</p>
             <Link href="/about">
               <span>About Us</span>

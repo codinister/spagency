@@ -5,7 +5,9 @@ import Modal from '@/components/Modal';
 import { useState } from 'react';
 
 const Products = () => {
-  const { data: sliderdata } = useGetQuery('slider', '/slider') || [];
+  const sliderdata = useGetQuery('slider', '/slider') || [];
+
+  const board = useGetQuery('products', '/products');
 
   const [modalvalue, setModalvalue] = useState('hide');
   const [modalimg, setModalimg] = useState('');
@@ -19,9 +21,11 @@ const Products = () => {
     image: string;
   }[];
 
-  const { data: board } = useGetQuery('products', '/products');
-  const boards: ProductsType = board ? board?.data : [];
+  const boards: ProductsType = board;
 
+  if (!sliderdata && !board) {
+    return '';
+  }
 
   return (
     <>
@@ -29,7 +33,7 @@ const Products = () => {
         <div
           className="header"
           style={{
-            backgroundImage: `url(${sliderdata?.data[2].image})`,
+            backgroundImage: `url(${sliderdata[2]?.image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'top',
           }}

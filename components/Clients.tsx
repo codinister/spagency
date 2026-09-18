@@ -8,16 +8,16 @@ const Clients = () => {
 
   type CL = {
     image: string;
-  }[];
-  const { data: client } = useGetQuery('client', '/clients');
-  const clients: CL = client ? client?.data : [];
+  }
+  const clients  = useGetQuery('client', '/clients');
+
+  if(!clients){
+    return ''
+  }
 
   const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => e.preventDefault();
 
-
-
-
-  const items = clients.map((v, k) => {
+  const items = clients.map((v: CL, k: number) => {
           return (
             <div
             className="clients-thumbs"

@@ -1,10 +1,12 @@
+
+
 import { createClient } from 'next-sanity';
 
-const client = createClient({
-  projectId: 'j8t9esyp',
-  dataset: 'production',
-  apiVersion: '2024-02-09',
-  useCdn: true,
-});
+const key = process.env.SANITY_SERVER_KEY || '';
 
-export default client;
+export default createClient({
+  projectId: key,
+  dataset: 'production',
+  apiVersion: '2026-07-06',
+  useCdn: true
+});

@@ -1,17 +1,35 @@
+'use client'
+
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { schemaTypes } from './schemas/index';
 
-const config = defineConfig({
-  projectId: 'j8t9esyp',
+const key = process.env.NEXT_PUBLIC_SANITY_CLIENT_KEY || '';
+
+export default defineConfig({
+  projectId: key,
   dataset: 'production',
-  apiVersion: '2024-02-06',
-  title: 'S.P AGENCY',
   basePath: '/admindashboard',
-  plugins: [structureTool()],
+  title: 'spagency',
   schema: {
     types: schemaTypes,
   },
+  plugins: [structureTool()],
 });
 
-export default config;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

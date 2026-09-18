@@ -4,7 +4,7 @@ import client from '@/sanity/config.client';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const res = await client.fetch(
       groq`

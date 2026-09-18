@@ -11,28 +11,37 @@ import { useState } from 'react';
 import Clients from '@/components/Clients';
 
 export default function Home() {
-  const { data: sliderdata } = useGetQuery('slider', '/slider') || [];
+  const sliderdata = useGetQuery('slider', '/slider') || [];
 
   //SETTINGS  DATA
-  const { data } = useGetQuery('setti', '/settings');
+  const data = useGetQuery('setti', '/settings');
+
+  //SERVICES DATA
+  const serv = useGetQuery('serv', '/services');
+
+  //ABOUT DATA
+  const about = useGetQuery('abt', '/about');
+
+  const board = useGetQuery('newb', '/newboards');
+  const [modalvalue, setModalvalue] = useState('hide');
+  const [modalimg, setModalimg] = useState('');
+
+  if (!sliderdata && !data && !serv && !about && !board) {
+    return '';
+  }
+
   type SETTINS = {
     comp_email: string;
     comp_location: string;
     comp_name: string;
     youtube: string;
   };
-  const sett: SETTINS = data ? data?.data[0] : [];
+  const sett: SETTINS = data ? data[0] : [];
 
-  //SERVICES DATA
-  const { data: serv } = useGetQuery('serv', '/services');
-  const servdata = serv ? serv?.data : [];
-  const serv1 = servdata[0];
-  const serv2 = servdata[1];
-  const serv3 = servdata[2];
 
-  //ABOUT DATA
-  const { data: abt } = useGetQuery('abt', '/about');
-  const about = abt ? abt?.data : [];
+  const serv1 = serv[0];
+  const serv2 = serv[1];
+  const serv3 = serv[2];
 
   //NEW BOARDS
   type GALLERY = {
@@ -40,12 +49,9 @@ export default function Home() {
     image: string;
   }[];
 
-  const { data: board } = useGetQuery('newb', '/newboards');
-  const boards: GALLERY = board ? board?.data : [];
+  const boards: GALLERY = board 
   const gallery = boards?.map((v) => ({ img: v.image })).slice(0, 7);
 
-  const [modalvalue, setModalvalue] = useState('hide');
-  const [modalimg, setModalimg] = useState('');
   const modalFn = (value: string) => {
     setModalvalue(value);
   };
@@ -55,7 +61,7 @@ export default function Home() {
       <section
         className="header"
         style={{
-          backgroundImage: `url(${sliderdata?.data[2].image})`,
+          backgroundImage: `url(${sliderdata[2]?.image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}

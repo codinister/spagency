@@ -9,10 +9,17 @@ import { LuPhone } from 'react-icons/lu';
 import { MdOutlineEmail } from 'react-icons/md';
 
 const Contact = () => {
-  const { data: sliderdata } = useGetQuery('slider', '/slider') || [];
+
+  const sliderdata  = useGetQuery('slider', '/slider') || [];
 
   //SETTINGS  DATA
-  const { data } = useGetQuery('setti', '/settings');
+  const  data  = useGetQuery('setti', '/settings');
+  
+  if(!sliderdata && !data){
+    return ''
+  }
+  
+  
   type SETTINS = {
     comp_email: string;
     comp_location: string;
@@ -25,13 +32,13 @@ const Contact = () => {
     googlemap: string;
     digitaladdress: string;
   };
-  const sett: SETTINS = data ? data?.data[0] : [];
+  const sett: SETTINS = data[0];
 
   return (
     <section className="contact-wrapper">
       <div
         style={{
-          backgroundImage: `url(${sliderdata?.data[3].image})`,
+          backgroundImage: `url(${sliderdata[3]?.image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}

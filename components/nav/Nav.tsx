@@ -11,10 +11,7 @@ const Nav = () => {
   const showBox = () => setShow('show');
   const hideBox = () => setShow('hide');
 
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+
 
   const onScroll = () => {
     const y = Math.floor(window.scrollY);
@@ -25,6 +22,11 @@ const Nav = () => {
       document.querySelector('.navbar')?.classList.remove('show');
     }
   };
+
+    useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <nav className="navbar">

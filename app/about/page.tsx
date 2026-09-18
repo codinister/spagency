@@ -2,33 +2,32 @@
 
 import useGetQuery from '@/axios/useGetQuery';
 import Image from 'next/image';
-import Link from 'next/link';
-import {
-  MdCameraOutdoor,
-  MdOutlineBrandingWatermark,
-  MdReadMore,
-} from 'react-icons/md';
+import { MdCameraOutdoor, MdOutlineBrandingWatermark } from 'react-icons/md';
 import { TfiPrinter } from 'react-icons/tfi';
 
 const About = () => {
-  const { data: sliderdata } = useGetQuery('slider', '/slider') || [];
+
+  const sliderdata = useGetQuery('slider', '/slider') || [];
 
   //SERVICES DATA
-  const { data: serv } = useGetQuery('serv', '/services');
-  const servdata = serv ? serv?.data : [];
+  const servdata = useGetQuery('serv', '/services');
+
+  //ABOUT DATA
+  const about = useGetQuery('abt', '/about');
+
+  if (!sliderdata && !servdata && !about) {
+    return '';
+  }
+
   const serv1 = servdata[0];
   const serv2 = servdata[1];
   const serv3 = servdata[2];
-
-  //ABOUT DATA
-  const { data: abt } = useGetQuery('abt', '/about');
-  const about = abt ? abt?.data : [];
 
   return (
     <section className="about-us">
       <div
         style={{
-          backgroundImage: `url(${sliderdata?.data[0].image})`,
+          backgroundImage: `url(${sliderdata[0]?.image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
@@ -47,7 +46,7 @@ const About = () => {
         <div>
           <div
             style={{
-              backgroundImage: `url(${sliderdata?.data[1].image})`,
+              backgroundImage: `url(${sliderdata[1]?.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'top',
             }}
@@ -57,16 +56,16 @@ const About = () => {
 
       <div className="container">
         <div>
-          {sliderdata?.data ? (
+          {sliderdata ? (
             <>
               <Image
-                src={sliderdata?.data[4].image}
+                src={sliderdata[4]?.image}
                 width="600"
                 height="900"
                 alt=""
               />
               <Image
-                src={sliderdata?.data[3].image}
+                src={sliderdata[3]?.image}
                 width="600"
                 height="450"
                 alt=""
@@ -218,7 +217,7 @@ const About = () => {
         <div>
           <div
             style={{
-              backgroundImage: `url(${sliderdata?.data[2].image})`,
+              backgroundImage: `url(${sliderdata[2]?.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'top',
             }}

@@ -1,13 +1,21 @@
-import { useQuery } from 'react-query';
-import { request } from './axios.config';
+'use client'
 
-const useGetQuery = (querykey: [] | string, url: string, staleTime = 0) => {
-  const fetcherFunction = () => request({ url });
+import { useQuery } from '@tanstack/react-query';
+import fetch from './fetch';
 
-  return useQuery(querykey, fetcherFunction, {
-    staleTime,
-    cacheTime: 0
+const useGetQuery = (key: string, url: string) => {
+  
+  const fn = () => {
+    return fetch({ url }); 
+  };
+
+  const result = useQuery({
+    queryKey: [key],
+    queryFn: fn,
   });
+
+  const {data,isPending, isError} = result
+  return isError ? 'An error occured' : isPending ? [] : data?.data
 };
 
 export default useGetQuery;

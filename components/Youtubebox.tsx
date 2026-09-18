@@ -1,11 +1,13 @@
-import YouTube, { YouTubeProps } from 'react-youtube';
-const getYouTubeID = require('get-youtube-id');
+import YouTube, { type YouTubeProps } from 'react-youtube';
+import getYouTubeID from 'get-youtube-id';
 
-type UR = {
+type YouTubeBoxProps = {
   url: string;
 };
 
-const Youtubebox = ({ url }: UR) => {
+const Youtubebox = ({ url }: YouTubeBoxProps): React.JSX.Element | null => {
+  const videoId = getYouTubeID(url);
+
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     event.target.playVideo();
     event.target.mute();
@@ -15,15 +17,10 @@ const Youtubebox = ({ url }: UR) => {
     event.target.playVideo();
   };
 
-  const VIDEO_WIDTH = `100%`;
-  const VIDEO_HEIGHT = `310`;
-
   const opts: YouTubeProps['opts'] = {
-    height: VIDEO_HEIGHT,
-    width: VIDEO_WIDTH,
-    mute: 1,
+    height: '310',
+    width: '100%',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
       controls: 1,
       disablekb: 1,
@@ -34,20 +31,20 @@ const Youtubebox = ({ url }: UR) => {
     },
   };
 
-  if (url) {
-    return (
-      <div className="youtubebox">
-        <YouTube
-          videoId={getYouTubeID(url)}
-          opts={opts}
-          onReady={onPlayerReady}
-          onEnd={onPlayerEnd}
-        />
-      </div>
-    );
-  } else {
+  if (!url || !videoId) {
     return null;
   }
+
+  return (
+    <div className="youtubebox">
+      <YouTube
+        videoId={videoId}
+        opts={opts}
+        onReady={onPlayerReady}
+        onEnd={onPlayerEnd}
+      />
+    </div>
+  );
 };
 
 export default Youtubebox;
