@@ -78,11 +78,11 @@
               width: 3rem;
               height: 3rem;
               border-radius: 50%;
-              border: solid 0.2rem $yellow;
+              border: solid 0.2rem #facb03;
             }
             & > div:nth-of-type(2) {
               width: 0.2rem;
-              border: solid 0.2rem $yellow;
+              border: solid 0.2rem #facb03;
               height: 12rem;
               margin-block: 1.2rem;
             }
@@ -219,11 +219,11 @@
               width: 3rem;
               height: 3rem;
               border-radius: 50%;
-              border: solid 0.2rem $yellow;
+              border: solid 0.2rem #facb03;
             }
             & > div:nth-of-type(2) {
               width: 0.2rem;
-              border: solid 0.2rem $yellow;
+              border: solid 0.2rem #facb03;
               height: 12rem;
               margin-block: 1.2rem;
             }

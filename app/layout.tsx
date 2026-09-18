@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import './globals.scss';
+import './globals.css';
 import Nav from '@/components/nav/Nav';
 import Footer from '@/components/footer/Footer';
 import QueryProvider from '@/axios/QueryProvider';

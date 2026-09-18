@@ -1,5 +1,5 @@
 .active {
-  color: $yellow !important;
+  color: #facb03 !important;
 }
 
 @media (min-width: 35em) {
@@ -10,7 +10,7 @@
     width: 100%;
     z-index: 999999;
     &.show {
-      background-color: $black;
+      background-color: #000000;
       transition: 0.3s;
     }
     padding-block: 0.8rem;
@@ -33,16 +33,16 @@
 
           li:nth-of-type(6) a {
             display: block;
-            background-color: $yellow;
+            background-color: #facb03;
             padding: 1.2rem;
             border-radius: 2.4rem;
-            color: $black;
+            color: #000000;
           }
         }
       }
     }
     a {
-      color: $white;
+      color: #ffffff;
     }
   }
 
@@ -57,7 +57,7 @@
     top: 0;
     left: 0;
     padding: 1.6rem;
-    background-color: $black;
+    background-color: #000000;
     z-index: 999999;
     width: 100%;
     height: 5.5rem;
