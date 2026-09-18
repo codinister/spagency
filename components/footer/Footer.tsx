@@ -109,7 +109,7 @@ const Footer = () => {
       </div>
       <div>
         <div className="container">
-          Copyrigt &copy; 2023 {sett?.comp_name} Design by Codenester
+          Copyrigt &copy; 2023 - {new Date().getFullYear()} {sett?.comp_name} Design by Codenester
         </div>
       </div>
     </footer>
