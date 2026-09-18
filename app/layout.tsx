@@ -3,6 +3,7 @@ import './globals.css';
 import Nav from '@/components/nav/Nav';
 import Footer from '@/components/footer/Footer';
 import QueryProvider from '@/axios/QueryProvider';
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'SP Agency GHANA',
@@ -44,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-qb-installed="true" suppressHydrationWarning={true}>
       <body cz-shortcut-listen="true">
+      <Analytics/>
         <QueryProvider>
           <Nav />
           {children}
