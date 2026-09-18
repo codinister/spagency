@@ -1,4 +1,3 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 @use '@/styles/colors' as *;
 @use '@/styles/utils' as *;
 @use '@/styles/about' as *;
@@ -10,5 +9,4 @@
 @use '@/styles/modal' as *;
 @use '@/styles/products' as *;
 
-
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
